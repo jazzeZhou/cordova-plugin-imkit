@@ -34,7 +34,7 @@ public class HttpUtils {
     }
 
     public static void setToken(String token) {
-        my_token = token + ":";
+        my_token = token;
     }
 
     public static UserInfo getUserInfo(String id) {
@@ -66,8 +66,29 @@ public class HttpUtils {
         return userInfo;
     }
 
+  public static String getHUserInfo(String id) {
+    String userInfo = null;
+    try {
+        Request request = addHeaders().url(baseurl+id).build();
+        final Call call = client.newCall(request);
+        final Response response = call.execute();
+        String ss = response.body().string();
+        Log.i("BaseUtils",ss);
+        JSONObject jsonObject = JSON.parseObject(ss);
+
+        if (jsonObject.getBoolean("success")) {
+            JSONObject jsonObject1 = jsonObject.getJSONObject("data");
+            Log.i("BaseUtils",jsonObject1.getString("uid"));
+            userInfo = JSON.toJSONString(jsonObject1);
+        }
+    } catch (Exception e) {
+        Log.i("BaseUtils",e.toString());
+    }
+    return userInfo;
+  }
+
     private static Request.Builder addHeaders() {
-        String token ="Basic " + Base64.encodeToString(my_token.getBytes(), Base64.NO_WRAP);
+        String token =my_token;
         Request.Builder builder = new Request.Builder()
                 .addHeader("Authorization", token);
         return builder;
