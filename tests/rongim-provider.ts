@@ -6,7 +6,7 @@ import {StorageProvider} from "./storage-provider";
 /*
 
   //test:x18ywvqfx3ivc 目前和健康云服用同一个key
- ionic plugin add cordova-plugin-imkit --variable APP_KEY=x18ywvqfx3ivc
+ ionic cordova plugin add cordova-plugin-imkit --variable APP_KEY=x18ywvqfx3ivc
 
 //医生端:--variable APP_KEY=vnroth0kvqz0o
 
