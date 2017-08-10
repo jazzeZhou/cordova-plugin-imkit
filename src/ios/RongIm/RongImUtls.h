@@ -32,6 +32,7 @@ typedef void (*RecvMsgFunc)(NSString *content);
 -(void)init: (NSString *)key andSuccessFunc: (RecvMsgFunc *)func;
 -(void)connect: (NSString *)h_token andImToken: (NSString *)im_token andGetUserUrl: (NSString *)get_user_url success: (void (^)(NSString *content))successBlock;
 -(void)getConversationList: (void (^)(NSString *content))successBlock;
+-(void)getUnreadMessageCount: (void (^)(NSString *content))successBlock;
 -(void)getUserInfo: (NSString *)userid success: (void (^)(NSString *content))successBlock;
 -(void)launchChats: (RecvMsgFunc *)func;
 -(void)launchChat: (NSString *)userId success: (RecvMsgFunc *)func;

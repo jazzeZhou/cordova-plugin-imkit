@@ -101,6 +101,21 @@ public class BaseUtils {
 
   }
 
+    public static void getUnreadMessageCount(final CallbackContext callbackContext) {
+        RongIM.getInstance().getTotalUnreadCount(new RongIMClient.ResultCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer integer) {
+                String counts = integer.toString();
+                callbackContext.success(counts);
+            }
+            
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+                
+            }
+        });
+    }
+    
   public static void getConversationList(final CallbackContext callbackContext) {
     RongIMClient.getInstance().getConversationList(new RongIMClient.ResultCallback<List<Conversation>>() {
       @Override

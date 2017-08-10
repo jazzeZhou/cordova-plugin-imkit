@@ -104,6 +104,11 @@
     
 }
     
+-(void)getUnreadMessageCount: (void (^)(NSString *content))successBlock {
+    int totalUnreadCount = [[RCIMClient sharedRCIMClient] getTotalUnreadCount];
+    successBlock([NSString stringWithFormat:@"%d",totalUnreadCount]);
+}
+    
 -(void)getConversationList: (void (^)(NSString *content))successBlock {
     NSArray *conversationList = [[RCIMClient sharedRCIMClient]
                                  getConversationList:@[@(ConversationType_PRIVATE),

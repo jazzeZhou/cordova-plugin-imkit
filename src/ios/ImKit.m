@@ -130,6 +130,14 @@
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
 }
+    
+- (void)GetUnreadMessageCount:(CDVInvokedUrlCommand *)command {
+    [_rongimUtls getUnreadMessageCount:^(NSString *content) {
+        CDVPluginResult *pluginResult=nil;
+        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:content];
+        [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+    }];
+}
 
 - (void)RemoveConversation:(CDVInvokedUrlCommand *)command {
 	NSString *userId = [command argumentAtIndex:0 withDefault:nil];

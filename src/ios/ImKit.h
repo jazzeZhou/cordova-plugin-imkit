@@ -30,6 +30,7 @@ void backFunc(NSString *content);
 - (void)Exit:(CDVInvokedUrlCommand *)command;
 - (void)GetUserInfo:(CDVInvokedUrlCommand *)command;
 - (void)GetConversationList:(CDVInvokedUrlCommand *)command;
+- (void)GetUnreadMessageCount:(CDVInvokedUrlCommand *)command;
 - (void)RemoveConversation:(CDVInvokedUrlCommand *)command;
 
 @end

@@ -16,6 +16,7 @@ public class ImKit extends CordovaPlugin {
   public static final String ACTION_CONNECT = "Connect";
   public static final String ACTION_GETUSER = "GetUserInfo";
   public static final String ACTION_GET_LIST = "GetConversationList";
+    public static final String ACTION_GET_UnMsgCount = "GetUnreadMessageCount";
   public static final String ACTION_EXIT = "Exit";
   public static final String ACTION_LAUNCH_CHATS = "LaunchChats";
   public static final String ACTION_LAUNCH_CHAT = "LaunchChat";
@@ -62,6 +63,8 @@ public class ImKit extends CordovaPlugin {
       String user = args.getString(0);
       int type = args.getInt(1);
       BaseUtils.removeConversation(mCordova.getActivity(), user, type,callbackContext);
+    } else if (ACTION_GET_UnMsgCount.equals(action)) {
+        BaseUtils.getUnreadMessageCount(callbackContext);
     }
     return true;
   }

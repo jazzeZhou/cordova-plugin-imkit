@@ -13,6 +13,9 @@ ImKit.prototype.GetUserInfo = function (str, success, error) {
 ImKit.prototype.GetConversationList = function (success, error) {
   cordova.exec(success, error, 'ImKit', 'GetConversationList', []);
 }
+ImKit.prototype.GetUnreadMessageCount = function (success, error) {
+  cordova.exec(success, error, 'ImKit', 'GetUnreadMessageCount', []);
+}
 ImKit.prototype.Exit = function (success, error) {
   cordova.exec(success, error, 'ImKit', 'Exit', []);
 }
