@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin id="cordova-plugin-imkit" version="0.0.3"
+<plugin id="cordova-plugin-imkit" version="0.0.4"
         xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android">
   <name>ImKit</name>
@@ -253,6 +253,11 @@
       <config-file target="*RCConfig.plist" parent="RONGC_APP_KEY">
             <string>$APP_KEY</string>
       </config-file>
+      
+      <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+          <string>App请求使用您的麦克风</string>
+      </config-file>
+      
   </platform>
 
 </plugin>
